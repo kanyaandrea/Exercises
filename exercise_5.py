@@ -1,23 +1,25 @@
+import datetime
 import random
-
-
-def get_random_numbers(range_limit, min_value, max_value):
-    for item in range(range_limit):
-        random_numbers.append(random.randint(min_value, max_value))
-    return random_numbers
-
-
-def convert(number_list):
-    for number in number_list:
-        fahrenheit = (number * 1.8) + 32
-        print("celsius: " + str(number) + " fahrenheit: " + str(fahrenheit))
-
-
-def main():
-    number_list = get_random_numbers(3, -30, 50)
-    convert(number_list)
-
-
-if __name__ == '__main__':
-    main()
-
+l = []
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+x = 0
+while x < 8:
+    f = (l[x] * 1.8) + 32
+    print("celsius: " + str(l[x]) + " fahrenheit: " + str(f))
+    x = x + 1
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+l.append(random.randint(-30,50))
+while x < 13:
+    f = (l[x] * 1.8) + 32
+    print("celsius: " + str(l[x]) + " fahrenheit: " + str(f))
+    x = x + 1

@@ -134,16 +134,91 @@ def check_palindrome_pharse(sentence):
     return checked
 
 
-def pangram(sentence):
+# exercise 19:
+# count how many common elements have two list : sum(i == j for (i,j) in zip(lst1, lst2))
+
+
+def check_pangram(sentence):
     characters = string.ascii_letters
-    count = []
-    lst = list(sentence)
+    for char in characters:
+        if char not in sentence:
+            return False
+    return True
+
+
+def check_pangram2(sentence):
+    alphabet = "abcdefghijklmnopqrstuvwxyz"
+    for char in alphabet:
+        if char not in sentence:
+            return False
+    return True
+
+
+'''def check_pangram(sentence):
+    characters = string.ascii_letters
     for char in characters:
         for letter in sentence:
-            if char == letter:
-                count += 1
-        return True        
-    return False
+            if char != letter:
+                return False
+    return True'''
+
+
+# exercise 20 (numbered till 24):
+def write_lyrics(min_value, max_value):
+    # with reversed : count = list(reversed(range(0, 100)))
+    count = list(range(min_value, max_value))
+    reversed_count = count[::-1]
+    for item in reversed_count:
+        print("{0} bottles of beer on the wall, {1} bottles of beer."
+                "Take one down, pass it around, {2} bottles of beer on the wall."
+                .format(item, item, item-1))
+
+
+def write_lyrics2(count):
+    while count > 0:
+        print("{0} bottles of beer on the wall, {1} bottles of beer."
+                "Take one down, pass it around, {2} bottles of beer on the wall."
+                .format(count, count, count-1))
+        count -= 1
+
+
+def translate():
+    '''for key ,value in dict.items():
+        for item in lst:
+            if item == key:'''
+    en_sw_dictonary = {"merry": "god", "christmas": "jul", "and": "och", "happy": "gott", "new": "nytt", "year": "år"}
+    card = "Merry Christmas and Happy New Year!"
+    card.replace("!", "")
+    english_words = card.replace("!", "")
+    english_words_small = english_words.lower()
+    englis_list = english_words_small.split()
+    swedish_list = []
+    for key, value in en_sw_dictonary.items():
+        for words in englis_list:
+            if words == key:
+                swedish_list.append(value)
+    swedish_words = " ".join(swedish_list)
+    sw_card = swedish_words.title()
+    print(sw_card + "!")
+
+
+def translate2():
+    en_sw_dictonary = {"merry": "god", "christmas": "jul", "and": "och", "happy": "gott", "new": "nytt", "year": "år"}
+    card = "Merry Christmas And Happy New Year!"
+    card.replace("!", "")
+    english_words = card.replace("!", "")
+    english_words_small = english_words.lower()
+    englis_list = english_words_small.split()
+    swedish_list = []
+    for key, value in en_sw_dictonary.items():
+        if key in englis_list:
+            swedish_list.append(value)
+    swedish_words = " ".join(swedish_list)
+    sw_card = swedish_words.title()
+    print(sw_card + "!")
+
+
+
 
 
 
@@ -159,5 +234,9 @@ print(check_palindrome("gorogok"))
 print(check_palindrome2("GorOg"))
 print(check_palindrome_pharse("Indul a gorog aludni?"))
 print(check_palindrome_pharse("Nem, nem indul a gorog aludni!"))
-print(pangram("brrrrrr."))
-
+print("exercise 19: " + str(check_pangram("brrrrrr.")))
+print("exercise 19: " + str(check_pangram2("the quick brown fox jumps over the lazy dog")))
+write_lyrics(1, 5)
+write_lyrics2(5)
+translate()
+translate2()
